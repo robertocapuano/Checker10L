@@ -1,7 +1,9 @@
 10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z:B=base(0)+40*7+15:dimCK(7,7):
-20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(1-(I>5)):nextI,J
-30 forJ=0to7:forI=0to7:vpoke B+40*J+I,65+CK(J,I):nextI,J:
+20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-2*(I<3) -1*(I>4)):nextI,J
+30 P(0)=46:P(1)=111:P(2)=79:forJ=0to7:forI=0to7:vpoke B+40*(7-J)+I,P(CK(J,I)):nextI,J:
 50 k$=INPUT$(1)
+
+20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(1-(I<3orI>4)):nextI,J
 
 30 forI=0to63:C$=MID$(CH$,I+1,1):?(C$):next I
 20 CH$="RNBKQBNRPPPPPPPP":forI=1to6:CH$=CH$+'........':NEXTI:CH$=CH$+'pppppppprnbkqbnr'
