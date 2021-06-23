@@ -1,8 +1,10 @@
 10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z:B=base(0)+40*7+15:dimCK(7,7):
 20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-1*(I<3) -2*(I>4)):nextI,J
-30 P(0)=46:P(1)=111:P(2)=79:forJ=0to7:forI=0to7:vpoke B+40*(7-J)+I,P(CK(J,I)):nextI,J:
-40 forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI
-50 k$=INPUT$(1)
+30 P(0)=46:P(1)=111:P(2)=79: forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI:
+40 GOSUB100:
+50 k$=INPUT$(1):STOP
+100 forJ=0to7:forI=0to7:vpoke B+40*(7-J)+I,P(CK(J,I)):nextI,J:RETURN
+
 
 20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(1-(I<3orI>4)):nextI,J
 
