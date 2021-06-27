@@ -1,8 +1,11 @@
 10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z:B=base(0)+40*7+15:dimCK(7,7):
 20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-1*(I<3) -2*(I>4)):nextI,J
 30 P(0)=46:P(1)=111:P(2)=79: forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI:
-40 GOSUB100:
-50 k$=INPUT$(1):STOP
+40 GOSUB100: R=0:C=0:R1=0:C1=0
+50 LOCATE13+C,7+R:k$=INPUT$(1):K=ASC(K$)
+60 :ifK=31andr<7thenR=R+1elseifK=30andR>0thenR=R-1:
+70 ifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1:
+80 goto 50
 100 forJ=0to7:forI=0to7:vpoke B+40*(7-J)+I,P(CK(J,I)):nextI,J:RETURN
 
 
