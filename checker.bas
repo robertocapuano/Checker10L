@@ -1,11 +1,11 @@
 10 screen0,0,0:COLOR1,14,14:KEYOFF:CLS:DEFINTA-Z:B=base(0)+40*7+15:dimCK(7,7):
 20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-1*(I<3) -2*(I>4)):nextI,J
 30 P(0)=46:P(1)=111:P(2)=79: forI=0to7:vpokeB-2+i*40,56-i:vpokeB+9*40+i,65+32+i:nextI:
-40 gosub100: R=7:C=7:
+40 gosub100: R=0:C=0:
 41 if CK(R,C)<>1 then GOSUB50: goto 41:else R0=R:C0=C:
 42 :if R<>R0+1 and abs(C0-C)<>1 then GOSUB50:goto42
 43 rem if CK(R1)
-44 CK(R,C)=1:CK(R1,C1)=0:beep
+44 CK(R,C)=1:CK(R0,C0)=0:beep
 49 goto 40
 50 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$)
 60 :ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:
