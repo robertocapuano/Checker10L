@@ -7,15 +7,16 @@
 43 rem if CK(R1)
 44 CK(R,C)=1:CK(R1,C1)=0:beep
 49 goto 40
-50 LOCATE13+C,7+R:k$=INPUT$(1):K=ASC(K$)
-60 :ifK=31andr<7thenR=R+1elseifK=30andR>0thenR=R-1:
+50 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$)
+60 :ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:
 70 ifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1:
 80 ifK=32then return: else goto 50
-100 forJ=0to7:forI=0to7:vpoke B+40*(7-J)+I,P(CK(J,I)):nextI,J:RETURN
+100 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:RETURN
 
 
-
-
+ P(0)=46: empty
+ P(1)=111: white
+ P(2)=79 black
 
 20 forJ=0to7:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(1-(I<3orI>4)):nextI,J
 
