@@ -5,7 +5,7 @@
 40 gosub200: 
 41 gosub150: if CK(R,C)<>1 then 41:else R0=R:C0=C
 42 :GOSUB150: if R=R0+1 and abs(C0-C)=1 and CK(R,C)=0 then CK(R,C)=1:CK(R0,C0)=0:beep:goto49
-43 if R=R0+2 and abs(C0-C)=2 and CK(R,C)=0 and CK(R-1, (C+C0)/2 )=2 then CK(R-1,(C+C0)/2 )=0:CK(R,C)=1:CK(R0,C0)=0:P1=P1+1:beep:goto49
+43 if R=R0+2 and abs(C0-C)=2 and CK(R,C)=0 and CK(R-1, (C+C0)/2 )=2 then CK(R-1,(C+C0)/2 )=0:CK(R,C)=1:CK(R0,C0)=0:P1=P1+1:vpokeB+479+P1,p(2):beep:goto49
 44 C=C0: R=R0: goto 41
 
 49 gosub200
@@ -14,7 +14,7 @@
 60 AI=0:forI=1to7:forJ=2to5: 
 61 DU=RND(1)*7:DV=RND(1)*7: for J=0 to 7:  U=(J+DU)mod8:  for I=0 to 7:V=(I+DV)mod8 :
 62 D= -(V<2) + +(V>5) + (V>1) * (V<6)  *SGN(RND(1)-.5): 
-63 IF U>1 and CK(U,V)=2 then if CK(U-1,V+D)=1 and CK(U-2,V+2*D)=0 then CK(U,V)=0: CK(U-1,V+D)=0:CK(U-2,V+2*D)=2 : I=7:J=7: AI=1: P2=P2+1
+63 IF U>1 and CK(U,V)=2 then if CK(U-1,V+D)=1 and CK(U-2,V+2*D)=0 then CK(U,V)=0: CK(U-1,V+D)=0:CK(U-2,V+2*D)=2 : I=7:J=7: AI=1: vpokeB-120+P2,p(1): P2=P2+1
 65 next I,J
 
 70 if AI=1 then 40
@@ -28,7 +28,7 @@
 160 :ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:
 170 ifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1:
 180 ifK=32then return: else goto 150
-200 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J: RETURN : REM REFRESH
+200 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:  RETURN : REM REFRESH
 
 
 CK(R,C) = 0 empty
