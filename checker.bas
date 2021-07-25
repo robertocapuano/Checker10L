@@ -40,8 +40,3 @@ CK(R,C) =2 opponent
  P(2)=79 black
 
 
-
-
-80 for I=1 TO 7: for J=0 TO 7: 
-81 if J>0 and CK(I-1,J-1)=0 then 
-90 goto 40
