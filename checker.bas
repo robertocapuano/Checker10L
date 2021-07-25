@@ -23,7 +23,7 @@ rem user move
 72 U=RND(1)*6+1 : V=RND(1)*7 : D= -(V<1) + +(V>6) + (V>0) * (V<7)  *SGN(RND(1)-.5): 
 73 IF CK(U,V)=2 and CK(U-1,V+D)=0 then CK(U,V)=0: CK(U-1,V+D)=2: K=11: AI = 1
 75 if AI = 0 then 72
-80 if AI=0 then 50
+80 rem if AI=0 then 50
 90 goto 40
 
 150 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$)
