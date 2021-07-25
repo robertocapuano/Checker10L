@@ -12,10 +12,10 @@
 
 50 rem ai
 60 AI=0:forI=1to7:forJ=2to5: 
-61 for K=0 to 20: 
-62 U=RND(1)*5+2 : V=RND(1)*7 : D= -(V<2) + +(V>5) + (V>1) * (V<6)  *SGN(RND(1)-.5): 
-63 IF CK(U,V)=2 and CK(U-1,V+D)=1 and CK(U-2,V+2*D)=0 then CK(U,V)=0: CK(U-1,V+D)=0:CK(U-2,V+2*D)=2 : K=11:  AI = 1
-65 next K
+61 DU=RND(1)*7:DV=RND(1)*7: for J=0 to 7:  U=(J+DU)mod8: if U<2 then next J: else for I=0 to 7:V=(I+DV)mod8 :
+62 D= -(V<2) + +(V>5) + (V>1) * (V<6)  *SGN(RND(1)-.5): 
+63 IF CK(U,V)=2 and CK(U-1,V+D)=1 and CK(U-2,V+2*D)=0 then CK(U,V)=0: CK(U-1,V+D)=0:CK(U-2,V+2*D)=2 : I=7:J=7: AI=1
+65 next I,J
 
 70 if AI=1 then 40
 71 for K=0 to 10: 
