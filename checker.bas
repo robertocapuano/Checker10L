@@ -27,9 +27,13 @@ rem user move
 75 next I,J
 
 80 goto 40
-150 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$)
+
+REM USER INPUT
+150 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$) 
 160 :ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:
 170 ifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1:
 180 ifK=32then return: else goto 150
-200 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:  RETURN : REM REFRESH
+
+rem REFRESH
+200 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:  RETURN 
 
