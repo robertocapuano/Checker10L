@@ -3,6 +3,7 @@
 
 
 40 AI=0:DU=RND(1)*7:DV=RND(1)*7: gosub200:
+rem 40 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:
 
 41 gosub150: if CK(R,C)<>1 then 41:else R0=R:C0=C
 42 GOSUB150: if R=R0+1 and abs(C0-C)=1 and CK(R,C)=0 then CK(R,C)=1:CK(R0,C0)=0:beep:gosub200:goto60
@@ -18,9 +19,8 @@
 73 IF U>0 and CK(U,V)=2 then IF CK(U,V)=2 and CK(U-1,V+D)=0 then CK(U,V)=0: CK(U-1,V+D)=2: K=11: AI = 1: J=7:I=7
 75 next I,J: goto 40
 
-150 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$):if K=32then return
-160 ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:elseifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1
-170 goto 150
+150 ifK=30andr<7thenR=R+1elseifK=31andR>0thenR=R-1:elseifK=28andC<7thenC=C+1:elseifK=29andC>0thenC=C-1
+160 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else 150
 
 200 forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J:  RETURN 
 
