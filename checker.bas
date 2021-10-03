@@ -4,7 +4,7 @@
 60 AI=0:DU=RND(1)*7:DV=RND(1)*7:forJ=0to7:forI=0to7:vpoke B+40*(J)+I,P(CK(7-J,I)):nextI,J: forJ=0to7:U=(J+DU)mod8:forI=0to7:V=(I+DV)mod8:forK=-1to1 step 2:D=-(V<2)++(V>5)+(V>1)*(V<6)*K:if U<2 or CK(U,V)<>2 then70
 65 if CK(U-1,V+D)=1 and CK(U-2,V+2*D)=0 then CK(U,V)=0:CK(U-1,V+D)=0:CK(U-2,V+2*D)=2:I=7:J=7:K=1:AI=1:vpokeB-120+P2,p(1):P2=P2+1:
 70 nextK,I,J:if P2=12 then locate0,0:?"CPU WINS": k$=INPUT$(1) : goto 1 else if AI=1 then 10
-71 S=SGN(RND(1)-.5):for J=0 to 7:  U=(J+DU)mod8:  for I=0 to 7: V=(I+DV)mod8 :  D= -(V<1) + +(V>6) + (V>0) * (V<7)*S: IF U>1 and CK(U,V)=2 then if (V+D)>0 and (V+D)<7 then IF CK(U-2,V+2*D)=1 then 75 
+71 S=SGN(RND(1)-.5):for J=0 to 7:  U=(J+DU)mod8:  for I=0 to 7: V=(I+DV)mod8 :  D= -(V<1) + +(V>6) + (V>0) * (V<7)*S: IF U>1 and CK(U,V)=2 then if (V+2*D)>=0 and (V+2*D)<=7 then IF CK(U-2,V+2*D)=1 then 75 
 73 IF U>0 and CK(U,V)=2 then IF CK(U-1,V+D)=0 then CK(U,V)=0: CK(U-1,V+D)=2: K=11: AI = 1: J=7:I=7
 75 next I,J: goto 10: if AI=0 then locate0,0:?"TIE": k$=INPUT$(1):goto1
 150 LOCATE13+C,14-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else if K=30andr<7thenR=R+1:goto150:elseifK=31andR>0thenR=R-1:goto150:elseifK=28andC<7thenC=C+1:goto150;elseifK=29andC>0thenC=C-1:GOTO150:ELSE150
