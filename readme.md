@@ -8,3 +8,7 @@ CK(R,C) =2 opponent
  P(1)=111: white
  P(2)=79 black
 
+
+
+https://webmsx.org/?M=MSXTR
+
