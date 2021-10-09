@@ -9,6 +9,12 @@ CK(R,C) =2 opponent
  P(2)=79 black
 
 
+0 spazio
+1 user
+2 cpu
+5 user
+6 cpu
+
 
 https://webmsx.org/?M=MSXTR
 
