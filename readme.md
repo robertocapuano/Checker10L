@@ -122,7 +122,7 @@ for a faster gameplay use an accelerated clock:
 ```
 75 next L,K,I,J:if AI=0 then 1 :else10
 ```
-- in case AI cannot do a move the game restart (tie-break)
+- tie-break: in case AI cannot do a valid move
 ```
 150 LOCATE10+C,13-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else if K=30andr<7thenR=R+1:goto150:elseifK=31andR>0thenR=R-1:goto150:elseifK=28andC<7thenC=C+1:goto150;elseifK=29andC>0thenC=C-1:GOTO150:ELSE150
 ```
