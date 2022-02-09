@@ -36,7 +36,7 @@ for a faster gameplay use an accelerated clock:
 # Source Description
 
 ```
-1 screen1,0,0:COLOR1,14,14:KEYOFF::DEFINTA-Z:B=6347:R=RND(-TIME):P(0)=46:P(1)=111:P(2)=79:P(5)=113:P(6)=81:B2=B+32*9:CLS:P1=0:P2=0:forJ=0to7:vpokeB-2+J*32,56-J:vpokeB2+J,97+J:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-1*(I<3)-2*(I>4)):nextI,J:
+1 screen1,0,0:COLOR1,14,14:KEYOFF::DEFINTA-Z:B=6348:R=RND(-TIME):P(0)=46:P(1)=111:P(2)=79:P(5)=113:P(6)=81:B2=B+32*9:CLS:P1=0:P2=0:forJ=0to7:vpokeB-2+J*32,56-J:vpokeB2+J,97+J:forI=0to7:CK(I,J)=(1-(I+J)mod2)*(-1*(I<3)-2*(I>4)):nextI,J:
 ```
 - screen1,0,0: Set text mode 32x24
 - COLOR2,1,1: black color
@@ -45,8 +45,6 @@ for a faster gameplay use an accelerated clock:
 - DEFINTA-Z: use integer variables
 - B=6347: base of framebuffer
 - R=RND(-TIME): init random number generator
-
-
 ```
 10 forJ=0to7:forI=0to7:vpoke B+32*(J)+I,P(CK(7-J,I)):nextI,J:gosub150:Q=(CK(R,C)and4):if (CK(R,C)and1)=0 then 10:else R0=R:C0=C:GOSUB150:if(R=R0+1or(Q=4 and R=R0-1))and abs(C0-C)=1 and CK(R,C)=0 then CK(R,C)=(CK(R0,C0)or(4*(-1*(R=7)))):CK(R0,C0)=0:goto60
 ```
@@ -72,6 +70,6 @@ for a faster gameplay use an accelerated clock:
 75 next L,K,I,J:if AI=0 then 1 :else10
 ```
 ```
-150 LOCATE9+C,13-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else if K=30andr<7thenR=R+1:goto150:elseifK=31andR>0thenR=R-1:goto150:elseifK=28andC<7thenC=C+1:goto150;elseifK=29andC>0thenC=C-1:GOTO150:ELSE150
+150 LOCATE10+C,13-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else if K=30andr<7thenR=R+1:goto150:elseifK=31andR>0thenR=R-1:goto150:elseifK=28andC<7thenC=C+1:goto150;elseifK=29andC>0thenC=C-1:GOTO150:ELSE150
 ```
 
