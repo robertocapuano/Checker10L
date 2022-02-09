@@ -1,5 +1,6 @@
 # Checker10L
 Checker10L is an implementation in MSX2 BASIC of classic checker game: italian dama.
+
 All classic rules are implemented: move, capture and promotion to king.
 
 ![screenshot](screenshot.png)
@@ -7,7 +8,7 @@ All classic rules are implemented: move, capture and promotion to king.
 # Controls
 - Cursor keys to move the cursor
 - Space to select a piece
-- Space to move the selected disc.
+- Space to move the selected piece.
 
 When a piece reaches the furthest row it becomes a king.
 
@@ -65,7 +66,7 @@ for a faster gameplay use an accelerated clock:
 ```
 - CE=CK((R+R0)/2,(C+C0)/2): get cell at middle of the user move
 - (Q=0andR<>R0+2) check if the user has made a simple move (1 cell)
-- orabs(R-R0)<>2orabs(C0-C)<>2orCK(R,C)<>0or(CE and2)<>2orQ<(CEand4) check if the user capture the opponent piece
+- abs(R-R0)<>2 or abs(C0-C)<>2 or CK(R,C)<>0 or(CE and2)<>2 or Q<(CEand4) check if the user capture the opponent piece
 - C=C0:R=R0:goto10 in case the move is illegal restart user selection
 - CK((R+R0)/2,(C+C0)/2)=0: a valid capture is made
 - CK(R,C)=(CK(R0,C0)or(4*(-1*(R=7)))):CK(R0,C0)=0: piece is moved
