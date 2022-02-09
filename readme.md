@@ -29,7 +29,7 @@ WebMSX Launch URL:
 
 - https://webmsx.org/?DISK=https://github.com/robertocapuano/Checker10L/raw/main/checker.dsk&BASIC_RUN=checker.bas
 
-for a smoother effect use an accelerated clock:
+for a faster gameplay use an accelerated clock:
 
 - https://webmsx.org/?Z80_CLOCK_MODE=8&DISK=https://github.com/robertocapuano/Checker10L/raw/main/checker.dsk&BASIC_RUN=checker.bas
 
