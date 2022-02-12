@@ -6,6 +6,5 @@
 70 nextL,K,I,J:if P2=12 then 1 else if AI=1 then 10
 71 S=SGN(RND(1)-.5):forJ=0to7:U=(J+DU)mod8:forI=0to7:V=(I+DV)mod8:Q=(CK(U,V)and4):forK=-StoS step S*2:forL=-StoSstep2*S: if (Q=0 and L=1) or (L=-1 and U=0) or (L=1 and U=7) or (CK(U,V)and2)<>2 then75:else D= -(V<1) + +(V>6) + (V>0) * (V<7)*K: T= L:
 73 NU=U+2*T:NV=V+2*D:BC=(NU>=0andNU<8)and(NV>=0andNV<8)and(AX=0):if CK(U+T,V+D)=0 and ((CK( U+2*T* -BC, V+2*D* -BC)and 1) =0) then CK(U+T,V+D)=(CK(U,V)or(4*(-1*((U+T)=0)))):CK(U,V)=0:K=11: AI = 1: J=7:I=7:K=1:L=1
-75 next L,K,I,J:if AI=1 then 10:else if AX=0 then AX=1: goto71: else10
+75 next L,K,I,J:if AI=1 then 10:else if AX=0 then AX=1: goto71: else1
 150 LOCATE10+C,13-R:k$=INPUT$(1):K=ASC(K$):if K=32then return: else if K=30andr<7thenR=R+1:goto150:elseifK=31andR>0thenR=R-1:goto150:elseifK=28andC<7thenC=C+1:goto150;elseifK=29andC>0thenC=C-1:GOTO150:ELSE150
-

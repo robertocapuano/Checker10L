@@ -122,7 +122,7 @@ for a faster gameplay use an accelerated clock:
 - CK(U+T,V+D)=(CK(U,V)or(4*(-1*((U+T)=0)))):CK(U,V)=0: move the piece
 - K=11: AI = 1: J=7:I=7:K=1:L=1: end loop
 ```
-75 next L,K,I,J:if AI=1 then 10:else if AX=0 then AX=1: goto71: else10
+75 next L,K,I,J:if AI=1 then 10:else if AX=0 then AX=1: goto71: else1
 ```
 - tie-break: in case AI cannot do a valid move
 ```
