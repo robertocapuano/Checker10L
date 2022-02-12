@@ -12,6 +12,13 @@ All classic rules are implemented: move, capture and promotion to king.
 
 When a piece reaches the furthest row it becomes a king.
 
+Symbols:
+- . empty cell
+- o user piece
+- q user king
+- O opponent piece
+- Q opponent king
+
 Sources are stored at: https://github.com/robertocapuano/Checker10L
 
 # Installation
