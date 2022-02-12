@@ -3,6 +3,8 @@ Checker10L is an implementation in MSX2 BASIC of classic checker game: italian d
 
 All classic rules are implemented: move, capture and promotion to king.
 
+The game was inspired by [1K ZX Chess](https://en.wikipedia.org/wiki/1K_ZX_Chess)
+
 ![screenshot](screenshot.png)
 
 # Controls
