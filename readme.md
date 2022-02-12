@@ -15,11 +15,11 @@ The game was inspired by [1K ZX Chess](https://en.wikipedia.org/wiki/1K_ZX_Chess
 When a piece reaches the furthest row it becomes a king.
 
 Symbols:
-- . empty cell
-- o user piece
-- q user king
-- O opponent piece
-- Q opponent king
+- `.` empty cell
+- `o` user piece
+- `q` user king
+- `O` opponent piece
+- `Q` opponent king
 
 Sources are stored at: https://github.com/robertocapuano/Checker10L
 
