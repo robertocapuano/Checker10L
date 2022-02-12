@@ -74,8 +74,9 @@ for a faster gameplay use an accelerated clock:
 - ifP1=12then1 if user captured all 12 pieces the game restarts
  
 ```
-60 AI=0:DU=RND(1)*7:DV=RND(1)*7:forJ=0to7:forI=0to7:vpoke B+32*(J)+I,P(CK(7-J,I)):nextI,J: forJ=0to7:U=(J+DU)mod8:forI=0to7:V=(I+DV)mod8:Q=CK(U,V)and4:forK=-1to1 step 2:forL=-1to(-(Q=4))step2: if(L=-1 and U<2) or (L=1andU>5) or (CK(U,V)and2)<>2 then70
+60 AX=0:AI=0:DU=RND(1)*7:DV=RND(1)*7:forJ=0to7:forI=0to7:vpoke B+32*(J)+I,P(CK(7-J,I)):nextI,J: forJ=0to7:U=(J+DU)mod8:forI=0to7:V=(I+DV)mod8:Q=CK(U,V)and4:forK=-1to1 step 2:forL=-1to(-(Q=4))step2:if(L=-1 and U<2)or(L=1andU>5)or(CK(U,V)and2)<>2 then70
 ```
+- AX=0: flag to force any move
 - AI=0: Opponent logic starts here, as first case we try to capture
 - DU=RND(1)*7:DV=RND(1)*7: choose a random initial direction
 - forJ=0to7:forI=0to7:vpoke B+32*(J)+I,P(CK(7-J,I)):nextI,J: refresh chessboard
@@ -111,16 +112,17 @@ for a faster gameplay use an accelerated clock:
 - (L=-1 and U=0)  near chessboard border
 - (L=1 and U=7) near chessboard border
 - (CK(U,V)and2)<>2: cell content
--  D= -(V<1) + +(V>6) + (V>0) * (V<7)*K: T= L: select next cell
+- D= -(V<1) + +(V>6) + (V>0) * (V<7)*K: T= L: select next cell
 
 ```
-73 if CK(U+T,V+D)=0 then CK(U+T,V+D)=(CK(U,V)or(4*(-1*((U+T)=0)))):CK(U,V)=0:K=11: AI = 1: J=7:I=7:K=1:L=1
+73 NU=U+2*T:NV=V+2*D:BC=(NU>=0andNU<8)and(NV>=0andNV<8)and(AX=0):if CK(U+T,V+D)=0 and ((CK( U+2*T* -BC, V+2*D* -BC)and 1) =0) then CK(U+T,V+D)=(CK(U,V)or(4*(-1*((U+T)=0)))):CK(U,V)=0:K=11: AI = 1: J=7:I=7:K=1:L=1
 ```
+- NU=U+2*T:NV=V+2*D:BC=(NU>=0andNU<8)and(NV>=0andNV<8)and(AX=0) check if at next position the piece can be captured
 - if CK(U+T,V+D)=0 if next cell is free make to move
 - CK(U+T,V+D)=(CK(U,V)or(4*(-1*((U+T)=0)))):CK(U,V)=0: move the piece
 - K=11: AI = 1: J=7:I=7:K=1:L=1: end loop
 ```
-75 next L,K,I,J:if AI=0 then 1 :else10
+75 next L,K,I,J:if AI=1 then 10:else if AX=0 then AX=1: goto71: else10
 ```
 - tie-break: in case AI cannot do a valid move
 ```
