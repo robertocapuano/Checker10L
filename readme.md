@@ -5,7 +5,7 @@ All classic rules are implemented: move, capture and promotion to king.
 
 The game was inspired by [1K ZX Chess](https://en.wikipedia.org/wiki/1K_ZX_Chess) and would like to be a small tribute.
 
-![screenshot](screenshot.png)
+![screenshot](checker.gif)
 
 # Controls
 - Cursor keys to move the cursor
